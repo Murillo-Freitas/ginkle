@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+/* Tema escuro ativado pela classe .dark no <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Identidade visual (slides do TCC):
+  Evergreen 0F1F10 · 1E2B1F | Black Forest 1A3A1C | Dark Spruce 2A532C | Fern 417546
+  Muted Teal 7AB07F · 8FAB91 | Celadon A3D7A9 · B4D4B8 | Honeydew E4F0E5
+*/
+:root {
+  --page: #f4f9f4;
+  --surface: #ffffff;
+  --surface-alt: #e4f0e5;
+  --line: #c9dccb;
+  --ink: #0f1f10;
+  --muted: #4b6150;
+  --primary: #2a532c;
+  --primary-hover: #1a3a1c;
+  --on-primary: #ffffff;
+  --accent: #417546;
+  --ring: #417546;
+  --danger: #8f2a2a;
+  --danger-bg: #fbeaea;
+  --danger-solid: #8f2a2a;
+  --warn: #7a4b00;
+  --warn-bg: #fff3d6;
+  --ok: #1a3a1c;
+  --ok-bg: #e4f0e5;
+  color-scheme: light;
+}
+
+.dark {
+  --page: #0f1f10;
+  --surface: #1e2b1f;
+  --surface-alt: #1a3a1c;
+  --line: #34503a;
+  --ink: #e4f0e5;
+  --muted: #a8c0aa;
+  --primary: #7ab07f;
+  --primary-hover: #a3d7a9;
+  --on-primary: #0f1f10;
+  --accent: #a3d7a9;
+  --ring: #a3d7a9;
+  --danger: #f4b9b6;
+  --danger-bg: #3b1f1f;
+  --danger-solid: #b94a48;
+  --warn: #f1d28f;
+  --warn-bg: #3a2f12;
+  --ok: #a3d7a9;
+  --ok-bg: #1a3a1c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-on-primary: var(--on-primary);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+  --color-danger-bg: var(--danger-bg);
+  --color-danger-solid: var(--danger-solid);
+  --color-warn: var(--warn);
+  --color-warn-bg: var(--warn-bg);
+  --color-ok: var(--ok);
+  --color-ok-bg: var(--ok-bg);
+
+  /* paleta fixa da marca */
+  --color-brand-950: #0f1f10;
+  --color-brand-900: #1a3a1c;
+  --color-brand-800: #2a532c;
+  --color-brand-700: #417546;
+  --color-brand-500: #7ab07f;
+  --color-brand-400: #8fab91;
+  --color-brand-300: #a3d7a9;
+  --color-brand-200: #b4d4b8;
+  --color-brand-100: #e4f0e5;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--page);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: #b4d4b8;
+    color: #0f1f10;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "regions": [
+    "gru1"
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/resumo-diario",
+      "schedule": "0 21 * * *"
+    }
+  ]
+}
